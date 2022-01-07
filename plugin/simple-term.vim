@@ -2,12 +2,11 @@
 if !exists('g:simple_term_open') | let g:simple_term_open= '<c-t>' | en
 if !exists('g:simple_term_close') | let g:simple_term_close= '<c-t>' | en
 
-exe 'nnoremap <silent> ' g:simple_term_open ' :call RunCmd()<CR>'
-exe 'vnoremap <silent> ' g:simple_term_open ' :call RunCmd()<CR>'
-exe 'inoremap <silent> ' g:simple_term_open ' <esc>:call RunCmd()<CR>'
+exe 'nnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
+exe 'vnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
+exe 'inoremap <silent> ' g:simple_term_open ' <esc>:call SimpleTerm()<CR>'
 
-
-function! RunCmd(...)
+function! SimpleTerm(...)
   let command = get(a:, 1, '') 
   let focus = get(a:, 2, 1) 
 
