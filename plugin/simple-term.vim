@@ -1,9 +1,11 @@
 
-if !exists('g:simple_term_shortcut') | let g:simple_term_shortcut = '<c-t>' | en
+if !exists('g:simple_term_open') | let g:simple_term_open= '<c-t>' | en
+if !exists('g:simple_term_close') | let g:simple_term_close= '<c-t>' | en
 
-exe 'nnoremap <silent> ' g:simple_term_shortcut ' :call RunCmd()<CR>'
-exe 'vnoremap <silent> ' g:simple_term_shortcut ' :call RunCmd()<CR>'
-exe 'inoremap <silent> ' g:simple_term_shortcut ' <esc>:call RunCmd()<CR>'
+exe 'nnoremap <silent> ' g:simple_term_open ' :call RunCmd()<CR>'
+exe 'vnoremap <silent> ' g:simple_term_open ' :call RunCmd()<CR>'
+exe 'inoremap <silent> ' g:simple_term_open ' <esc>:call RunCmd()<CR>'
+
 
 function! RunCmd(...)
   let command = get(a:, 1, '') 
@@ -24,7 +26,7 @@ function! RunCmd(...)
     silent au BufLeave <buffer> stopinsert!
     silent au BufWinEnter,WinEnter <buffer> startinsert!
 
-    execute "tnoremap <buffer> <Leader>q <C-\\><C-n>:q<CR>"
+    execute 'tnoremap <buffer> ' g:simple_term_close '<C-\\><C-n>:q<CR>'
 
     if (!focus)
       execute "normal \<C-h>"
