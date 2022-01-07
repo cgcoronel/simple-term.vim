@@ -1,9 +1,9 @@
 
-if !exists('g:term_shortcut') | let g:term_shortcut = '<c-t>' | en
+if !exists('g:simple_term_shortcut') | let g:simple_term_shortcut = '<c-t>' | en
 
-exe 'nnoremap <silent> ' g:term_shortcut ' :call RunCmd()'
-exe 'vnoremap <silent> ' g:term_shortcut ' :call RunCmd()'
-exe 'inoremap <silent> ' g:term_shortcut ' <esc>:call RunCmd()'
+exe 'nnoremap <silent> ' g:simple_term_shortcut ' :call RunCmd()'
+exe 'vnoremap <silent> ' g:simple_term_shortcut ' :call RunCmd()'
+exe 'inoremap <silent> ' g:simple_term_shortcut ' <esc>:call RunCmd()'
 
 function! RunCmd(...)
   let command = get(a:, 1, '') 
