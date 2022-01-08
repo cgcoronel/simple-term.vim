@@ -6,6 +6,8 @@ Use CONTROL+T to open a terminal. This plugin only uses native buffer with some 
 
 [![asciicast](https://asciinema.org/a/c9Y2mbgcgef2PXhsWQIa4mlFX.svg)](https://asciinema.org/a/c9Y2mbgcgef2PXhsWQIa4mlFX)
 
+<script id="asciicast-c9Y2mbgcgef2PXhsWQIa4mlFX" src="https://asciinema.org/a/c9Y2mbgcgef2PXhsWQIa4mlFX.js" async></script>
+
 ## Install
 
 I use [vim-plug](https://github.com/junegunn/vim-plug)
