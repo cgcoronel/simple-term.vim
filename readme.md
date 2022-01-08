@@ -4,7 +4,7 @@
 
 Use CONTROL+T to open a terminal. This plugin only uses native buffer with some nice defaults and maps the keyboard shortcut. This means you don't need exit vim, because vim already has a nice terminal.
 
-[![asciicast](https://asciinema.org/a/dzdUxxbtJpsrlpehsF3WttLev.svg)](https://asciinema.org/a/dzdUxxbtJpsrlpehsF3WttLev)
+[![asciicast](https://asciinema.org/a/c9Y2mbgcgef2PXhsWQIa4mlFX.svg)](https://asciinema.org/a/c9Y2mbgcgef2PXhsWQIa4mlFX)
 
 ## Install
 
