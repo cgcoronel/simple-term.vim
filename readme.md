@@ -30,12 +30,12 @@ Also You can assign your own command customs shortcut:
 
 ```vim
 " Use command for run nodejs app 
-cnoreabbrev up :call RunCmd('npm run start') 
+cnoreabbrev up :call SimpleTerm('npm run start') 
 ```
 
 ```vim
 " Use command for run test jest 
-cnoreabbrev test :call RunCmd('npm run test') 
+cnoreabbrev test :call SimpleTerm('npm run test') 
 ```
 
 ## Related
