@@ -23,7 +23,7 @@ function! SimpleTerm(...)
     execute "set nornu"
 
     silent au BufLeave <buffer> stopinsert!
-    silent au BufWinEnter,WinEnter <buffer> startinsert!
+    silent au BufEnter,BufWinEnter,WinEnter <buffer> startinsert!
 
     execute "tnoremap <buffer> " . g:simple_term_close . " <C-\\><C-n>:bd!<CR>"
 
