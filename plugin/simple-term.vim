@@ -1,13 +1,9 @@
-if !exists('g:simple_term_disabled') | let g:simple_term_disabled=0 | en
+if !exists('g:simple_term_close') | let g:simple_term_close= '<c-t>' | en
+if !exists('g:simple_term_open') | let g:simple_term_open= '<c-t>' | en
 
-if (!g:simple_term_disabled) 
-  if !exists('g:simple_term_open') | let g:simple_term_open= '<c-t>' | en
-  if !exists('g:simple_term_close') | let g:simple_term_close= '<c-t>' | en
-
-  exe 'nnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
-  exe 'vnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
-  exe 'inoremap <silent> ' g:simple_term_open ' <esc>:call SimpleTerm()<CR>'
-endif
+exe 'nnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
+exe 'vnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
+exe 'inoremap <silent> ' g:simple_term_open ' <esc>:call SimpleTerm()<CR>'
 
 function! SimpleTerm(...)
   let command = get(a:, 1, '') 
