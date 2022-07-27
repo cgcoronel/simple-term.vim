@@ -25,6 +25,9 @@ function! SimpleTerm(...)
     silent au BufEnter,BufWinEnter,WinEnter <buffer> startinsert!
 
     execute "tnoremap <buffer> " . g:simple_term_close . " <C-\\><C-n>:bd!<CR>"
+    execute "tnoremap <buffer> <C-h> <C-\\><C-n><C-w><C-h>"
+    execute "tnoremap <buffer> <C-t> <C-\\><C-n>:q<CR>"
+    execute "tnoremap <buffer> <C-\\><C-\\> <C-\\><C-n>"
 
     if (!focus)
       execute "normal \<C-h>"
