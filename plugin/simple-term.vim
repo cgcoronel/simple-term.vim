@@ -1,5 +1,6 @@
 if !exists('g:simple_term_close') | let g:simple_term_close= '<c-t>' | en
 if !exists('g:simple_term_open') | let g:simple_term_open= '<c-t>' | en
+if !exists('g:simple_term_leave') | let g:simple_term_leave= '<c-h>' | en
 
 exe 'nnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
 exe 'vnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
@@ -25,7 +26,7 @@ function! SimpleTerm(...)
     silent au BufEnter,BufWinEnter,WinEnter <buffer> startinsert!
 
     execute "tnoremap <buffer> " . g:simple_term_close . " <C-\\><C-n>:bd!<CR>"
-    execute "tnoremap <buffer> <C-h> <C-\\><C-n><C-w><C-h>"
+    execute "tnoremap <buffer> " . g:simple_term_leave . " <C-\\><C-n><C-w><C-h>"
     execute "tnoremap <buffer> <C-\\><C-\\> <C-\\><C-n>"
 
     if (!focus)
