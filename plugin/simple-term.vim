@@ -1,39 +1,50 @@
-if !exists('g:simple_term_close') | let g:simple_term_close= '<c-t>' | en
-if !exists('g:simple_term_open') | let g:simple_term_open= '<c-t>' | en
-if !exists('g:simple_term_leave') | let g:simple_term_leave= '<c-h>' | en
+if !exists('g:simple_term_close')
+  let g:simple_term_close = '<c-t>'
+endif
 
-exe 'nnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
-exe 'vnoremap <silent> ' g:simple_term_open ' :call SimpleTerm()<CR>'
-exe 'inoremap <silent> ' g:simple_term_open ' <esc>:call SimpleTerm()<CR>'
+if !exists('g:simple_term_open')
+  let g:simple_term_open = '<c-t>'
+endif
+
+if !exists('g:simple_term_leave')
+  let g:simple_term_leave = '<c-h>'
+endif
+
+nnoremap <silent> <expr> g:simple_term_open ':call SimpleTerm()<CR>'
+vnoremap <silent> <expr> g:simple_term_open ':call SimpleTerm()<CR>'
+inoremap <silent> <expr> g:simple_term_open '<esc>:call SimpleTerm()<CR>'
 
 function! SimpleTerm(...)
-  let command = get(a:, 1, '') 
-  let focus = get(a:, 2, 1) 
+  let command = get(a:, 1, '')
+  let focus = get(a:, 2, 1)
 
-  let bufNum = bufnr("%")
-  let bufType = getbufvar(bufNum, "&buftype", "not found")
+  let bufNum = bufnr('%')
+  let bufType = getbufvar(bufNum, '&buftype', 'not found')
 
-  if bufType == "terminal"
-      execute "q"
-  else 
+  if bufType ==# 'terminal'
+    execute 'q'
+  else
     vsp
-    execute "normal \<C-l>"
-    execute "term " . command
-    execute "set nonu"
-    execute "set nornu"
+    execute 'normal \<C-l>'
+    execute 'term ' . command
+    set nonu
+    set nornu
 
-    silent au BufLeave <buffer> stopinsert!
-    silent au BufEnter,BufWinEnter,WinEnter <buffer> startinsert!
+    augroup SimpleTerm
+      autocmd!
+      autocmd BufLeave <buffer> stopinsert!
+      autocmd BufEnter,BufWinEnter,WinEnter <buffer> startinsert!
+    augroup END
 
-    execute "tnoremap <buffer> " . g:simple_term_close . " <C-\\><C-n>:bd!<CR>"
-    execute "tnoremap <buffer> " . g:simple_term_leave . " <C-\\><C-n><C-w><C-h>"
-    execute "tnoremap <buffer> <C-\\><C-\\> <C-\\><C-n>"
+    execute 'tnoremap <buffer> ' . g:simple_term_close . ' <C-\\><C-n>:bd!<CR>'
+    execute 'tnoremap <buffer> ' . g:simple_term_leave . ' <C-\\><C-n><C-w><C-h>'
+    execute 'tnoremap <buffer> <C-\\><C-\\> <C-\\><C-n>'
 
-    if (!focus)
-      execute "normal \<C-h>"
+    if !focus
+      execute 'normal \<C-h>'
     else
-      execute "normal \<C-h>\<C-l>"
+      execute 'normal \<C-h>\<C-l>'
     endif
-
   endif
 endfunction
+
